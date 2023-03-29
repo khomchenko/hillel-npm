@@ -1,0 +1,37 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "hillel final project",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "live-server",
+    "watch:sass": "node-sass assets/styles/main.scss dist/assets/styles/main.css -w",
+    "copy:fonts": "copyfiles assets/fonts/** dist/assets",
+    "copy:images": "copyfiles assets/images/** dist/assets",
+    "start": "npm-run-all --parallel devserver watch:sass copy:fonts copy:images",
+    "compile:sass": "node-sass assets/styles/main.scss dist/assets/styles/main.comp.css",
+    "concat:css": "concat -o dist/assets/styles/main.concat.css  dist/assets/styles/main.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/assets/styles/main.concat.css -o dist/assets/styles/main.prefix.css",
+    "compress:css": "node-sass dist/assets/styles/main.prefix.css dist/assets/styles/main.css --output-style compressed",
+    "copy:html": "copyfiles *.html dist/",
+    "build": "npm-run-all copy:html compile:sass concat:css prefix:css compress:css"
+  },
+  "keywords": [
+    "hillel",
+    "html",
+    "css",
+    "js"
+  ],
+  "author": "Khomchenko",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "concat": "^1.0.3",
+    "copyfiles": "^2.4.1",
+    "live-server": "^1.2.2",
+    "node-sass": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
+  }
+}

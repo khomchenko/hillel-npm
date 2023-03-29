@@ -1,0 +1,24 @@
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $font-weight: normal,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: $font-family;
+    src: url(/fonts/#{$file-path}.ttf);
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face("InterTight", "InterTight-Regular", 400);
+@include font-face("InterTight", "InterTight-Medium", 500);
+@include font-face("Montserrat", "Montserrat-Regular", 400);
+@include font-face("Montserrat", "Montserrat-Medium", 500);
+
+@mixin h1 {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 46px;
+}
