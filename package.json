@@ -6,9 +6,10 @@
   "scripts": {
     "devserver": "live-server",
     "watch:sass": "node-sass assets/styles/main.scss dist/assets/styles/main.css -w",
+    "css": "node-sass assets/styles/main.scss assets/styles/main.css -w",
     "copy:fonts": "copyfiles assets/fonts/** dist/assets",
     "copy:images": "copyfiles assets/images/** dist/assets",
-    "start": "npm-run-all --parallel devserver watch:sass copy:fonts copy:images",
+    "start": "npm-run-all --parallel devserver watch:sass copy:fonts copy:images css",
     "compile:sass": "node-sass assets/styles/main.scss dist/assets/styles/main.comp.css",
     "concat:css": "concat -o dist/assets/styles/main.concat.css  dist/assets/styles/main.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/assets/styles/main.concat.css -o dist/assets/styles/main.prefix.css",
